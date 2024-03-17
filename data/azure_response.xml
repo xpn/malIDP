@@ -1,0 +1,46 @@
+<samlp:Response ID="_461d4c98-3e02-4fb0-89b9-330993c74d36" Version="2.0" IssueInstant="{timenow}"
+  Destination="https://login.microsoftonline.com/login.srf"
+  Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified"
+  xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+  <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">{issuer}</Issuer>
+  <ds:Signature Id="placeholder" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"></ds:Signature>
+  <samlp:Status>
+    <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success" />
+  </samlp:Status>
+  <Assertion ID="_4fcd8f57-54f2-4c8f-9cda-e2ca27b6d534" IssueInstant="{timenow}" Version="2.0"
+    xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
+    <Issuer>{issuer}</Issuer>
+    <Subject>
+      <NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent">{immutableid}</NameID>
+      <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+        <SubjectConfirmationData NotOnOrAfter="{notafter}"
+          Recipient="https://login.microsoftonline.com/login.srf" />
+      </SubjectConfirmation>
+    </Subject>
+    <Conditions NotBefore="{notbefore}" NotOnOrAfter="{notafter}">
+      <AudienceRestriction>
+        <Audience>urn:federation:MicrosoftOnline</Audience>
+      </AudienceRestriction>
+    </Conditions>
+    <AttributeStatement>
+      <Attribute Name="http://schemas.xmlsoap.org/claims/UPN">
+        <AttributeValue>{email}</AttributeValue>
+      </Attribute>
+      <Attribute Name="http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID">
+        <AttributeValue>{immutableid}</AttributeValue>
+      </Attribute>
+      <Attribute Name="http://schemas.microsoft.com/claims/authnmethodsreferences">
+          <AttributeValue>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</AttributeValue>
+          <AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</AttributeValue>
+      </Attribute>
+      <Attribute Name="http://schemas.microsoft.com/claims/insidecorporatenetwork">
+        <AttributeValue>true</AttributeValue>
+      </Attribute>
+    </AttributeStatement>
+    <AuthnStatement AuthnInstant="{timenow}" SessionIndex="_4fcd8f57-54f2-4c8f-9cda-e2ca27b6d53b">
+      <AuthnContext>
+        <AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</AuthnContextClassRef>
+      </AuthnContext>
+    </AuthnStatement>
+  </Assertion>
+</samlp:Response>

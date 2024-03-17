@@ -1,0 +1,35 @@
+<html>
+
+<head>
+  <title>MALidp</title>
+</head>
+
+<!-- Behold.. the JANK -->
+<body>
+  <pre>
+     ___           ___                                                   ___   
+    /\  \         /\  \                                   _____         /\  \  
+   |::\  \       /::\  \                     ___         /::\  \       /::\  \ 
+   |:|:\  \     /:/\:\  \                   /\__\       /:/\:\  \     /:/\:\__\
+ __|:|\:\  \   /:/ /::\  \   ___     ___   /:/__/      /:/  \:\__\   /:/ /:/  /
+/::::|_\:\__\ /:/_/:/\:\__\ /\  \   /\__\ /::\  \     /:/__/ \:|__| /:/_/:/  / 
+\:\~~\  \/__/ \:\/:/  \/__/ \:\  \ /:/  / \/\:\  \__  \:\  \ /:/  / \:\/:/  /  
+ \:\  \        \::/__/       \:\  /:/  /   ~~\:\/\__\  \:\  /:/  /   \::/__/   
+  \:\  \        \:\  \        \:\/:/  /       \::/  /   \:\/:/  /     \:\  \   
+   \:\__\        \:\__\        \::/  /        /:/  /     \::/  /       \:\__\  
+    \/__/         \/__/         \/__/         \/__/       \/__/         \/__/  
+
+    by @_xpn_
+  </pre>
+  <form action="/redirect" method="post">
+    <input type="text" name="firstname" placeholder="firstname" /><br />
+    <input type="text" name="lastname" placeholder="lastname" /><br />
+    <input type="text" name="username" placeholder="email" /><br />
+    {% if show_azure %}
+    <input type="text" name="immutableid" placeholder="immutableID" /><br />
+    {% endif %}
+    <br />
+    <input type="submit" value="Login" />
+  </form>
+</body>
+</html>
