@@ -37,9 +37,6 @@ def handle_redirect():
     # Parse request and generate SAML response
     decoded = samlHandler.handleSamlRequest(saml_request, username, firstname, lastname, immutable_id = immutable_id)
 
-    if 'RelayState' not in request.form:
-      return render_template('saml_response.html', saml_response=decoded, redirect_path=samlHandler._acs_url, relay_state='applicationId=ea3e5f86-5dd9-457f-a674-a5372e074464&applicationUrl=https://myapp.com/overview')
-
     return render_template('saml_response.html', saml_response=decoded, redirect_path=samlHandler._acs_url, relay_state=request.form['RelayState'])
 
 @app.route('/', methods=['GET'])

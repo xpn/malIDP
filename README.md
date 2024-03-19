@@ -65,6 +65,3 @@ Start with:
 ./main.py --provider ping --cert ./example.com.crt --key ./example.com.key --metadata saml_metadata.xml --issuer 'www.example.com'
 ```
 
-And use the following to kick off the flow:
-
-
